@@ -159,6 +159,13 @@ public class Raster
 		if( row < rows && column < cols )
 			data[row][column] = value;
 	}
+	
+	public double getValue( int row, int column )
+	{
+		if( row < rows && column < cols )
+			return data[row][column];
+		return Double.NaN;
+	}
 
 	/**
 	 * Copies the given data into the underlying data array. Also updates the number of rows and columns.
