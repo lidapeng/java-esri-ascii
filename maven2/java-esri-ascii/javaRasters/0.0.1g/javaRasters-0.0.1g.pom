@@ -71,6 +71,11 @@
 			<name>{For: hamcrest-core-1.1.jar}</name>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
+		<repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven {For: org.jvnet.wagon-svn:wagon-svn}</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -92,7 +97,6 @@
 		<repository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>googlecode-releases</id>
-			<name>googlecode-releases</name>
 			<url>svn:https://java-esri-ascii.googlecode.com/svn/maven2</url>
 		</repository>
 	</distributionManagement>
