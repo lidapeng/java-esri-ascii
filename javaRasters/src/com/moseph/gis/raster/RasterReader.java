@@ -1,9 +1,11 @@
 package com.moseph.gis.raster;
 
 
-import java.io.*;
-import java.text.NumberFormat;
-import java.util.regex.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A class which reads an ESRI ASCII raster file into a Raster
@@ -14,13 +16,13 @@ public class RasterReader
 {
 	String noData = Raster.DEFAULT_NODATA;
 	Pattern header = Pattern.compile( "^(\\w+)\\s+(-?\\d+(.\\d+)?)");
-	
+
 	public static void main( String[] args ) throws IOException
 	{
 		RasterReader rt = new RasterReader();
 		rt.readRaster( "data/test.asc" );
 	}
-	
+
 	public Raster readRaster( String filename ) throws IOException
 	{
 		Raster raster = new Raster();
@@ -61,7 +63,7 @@ public class RasterReader
 					//System.out.println( "Got data row: " + line );
 					String[] inData = line.split( "\\s+" );
 					double[] numData = new double[raster.cols];
-					if( inData.length != numData.length ) throw new RuntimeException( "Wrong number of columns: Expected " + 
+					if( inData.length != numData.length ) throw new RuntimeException( "Wrong number of columns: Expected " +
 							raster.cols + " got " + inData.length + " for line \n" + line );
 					for( int col = 0; col < raster.cols; col ++ )
 					{

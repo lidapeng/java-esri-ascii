@@ -1,7 +1,5 @@
 package com.moseph.gis.raster;
 
-import static java.lang.System.setSecurityManager;
-
 import java.util.Arrays;
 
 /**
@@ -36,17 +34,17 @@ public class Raster
 				System.out.print( val + " " );
 			System.out.println( "" );
 		}
-		
+
 	}
-	
+
 	/**
 	 * Creates an empty raster
 	 */
 	public Raster()
 	{
-		
+
 	}
-	
+
 	/**
 	 * Creates a raster from the given data
 	 * @param cellsize
@@ -60,7 +58,7 @@ public class Raster
 		setXll( xll );
 		setYll( yll );
 	}
-	
+
 	/**
 	 * Creates a raster from the given data
 	 * @param data
@@ -73,7 +71,7 @@ public class Raster
 		this(cellsize, xll, yll);
 		setData( data );
 	}
-	
+
 	/**
 	 * Creates a raster from the given data
 	 * @param data
@@ -86,12 +84,12 @@ public class Raster
 		this(cellsize, xll, yll);
 		setData( data );
 	}
-	
+
 	public static Raster getTempRaster( double[][] data, double xll, double yll, double size )
 	{
 		return getTempRaster( data, xll, yll, size, DEFAULT_NODATA );
 	}
-	
+
 	public static Raster getTempRaster( double[][] data, double xll, double yll, double size, String ndata )
 	{
 		Raster a = new Raster();
@@ -104,8 +102,8 @@ public class Raster
 		a.cols = data[0].length;
 		return a;
 	}
-	
-	
+
+
 	/**
 	 * Sets the parameters of this raster (rows, columns, corner, cellsize, NDATA etc)
 	 * to be the same as the other raster. This includes initialising the data array
@@ -120,7 +118,7 @@ public class Raster
 		NDATA = other.NDATA;
 		setSize( other.getRows(), other.getCols() );
 	}
-	
+
 	/**
 	 * Initialises the Raster to Double.NaN (i.e. NDATA)
 	 */
@@ -128,7 +126,7 @@ public class Raster
 	{
 		initData( Double.NaN );
 	}
-	
+
 	/**
 	 * Initialises the raster so the entire data array contains 'value'
 	 * @param value
@@ -139,7 +137,7 @@ public class Raster
 		for( int i = 0; i < rows; i++ )
 		{
 			data[i] = new double[cols];
-			
+
 			Arrays.fill( data[i], value );
 		}
 	}
@@ -153,13 +151,13 @@ public class Raster
 	{
 		return data;
 	}
-	
+
 	public void setValue( int row, int column, double value )
 	{
 		if( row < rows && column < cols )
 			data[row][column] = value;
 	}
-	
+
 	public double getValue( int row, int column )
 	{
 		if( row < rows && column < cols )
@@ -180,7 +178,7 @@ public class Raster
 			for( int j = 0; j < cols; j++ )
 				this.data[i][j] = data[i][j];
 	}
-	
+
 	/**
 	 * Copies the given data into the underlying data array. Also updates the number of rows and columns.
 	 * @param data
@@ -194,9 +192,9 @@ public class Raster
 			for( int j = 0; j < cols; j++ )
 				this.data[i][j] = data[i][j];
 	}
-	
-	
-	
+
+
+
 	public double getXll()
 	{
 		return xll;
