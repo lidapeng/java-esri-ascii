@@ -1,20 +1,21 @@
 package com.moseph.gis.raster;
 
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.text.NumberFormat;
-import java.util.regex.*;
 
 public class RasterWriter
 {
 	NumberFormat cellFormat = null;
 	String nodataString = Raster.DEFAULT_NODATA;
-	
+
 	public static void main( String[] args ) throws IOException
 	{
 		RasterWriter rt = new RasterWriter();
 	}
-	
+
 	public void writeRaster( String filename, Raster r ) throws IOException
 	{
 		File f = new File( filename );
@@ -30,7 +31,7 @@ public class RasterWriter
 		o.println( "cellsize " + r.getCellsize() );
 		o.println( "NODATA_value " + r.getNDATA()  );
 		System.out.println( "writing rows");
-		
+
 		for( double[] row : r.getData() )
 		{
 			StringBuffer b = new StringBuffer();
@@ -45,12 +46,12 @@ public class RasterWriter
 		}
 		o.close();
 	}
-	
+
 	public void writeRaster( String filename, double[][] data, double xll, double yll, double size, String ndata ) throws IOException
 	{
 		writeRaster( filename, Raster.getTempRaster( data, xll, yll, size, ndata ) );
 	}
-	
+
 	public void setCellFormat( NumberFormat format )
 	{
 		cellFormat = format;
