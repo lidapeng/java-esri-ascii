@@ -66,6 +66,26 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<!--
+					To have both the binaries and the test binaries in your own pom as
+					dependency artifacts, use this snippet:
+				&lt;dependency&gt;
+					&lt;groupId&gt;java-esri-ascii&lt;/groupId&gt;
+					&lt;artifactId&gt;javaRasters&lt;/artifactId&gt;
+					&lt;version&gt;0.0&lt;/version&gt;
+					&lt;type&gt;test-jar&lt;/type&gt;
+					&lt;scope&gt;test&lt;/scope&gt;
+					&lt;optional&gt;true&lt;/optional&gt;
+				&lt;/dependency&gt;
+				&lt;dependency&gt;
+					&lt;groupId&gt;java-esri-ascii&lt;/groupId&gt;
+					&lt;artifactId&gt;javaRasters&lt;/artifactId&gt;
+					&lt;version&gt;0.0&lt;/version&gt;
+					&lt;type&gt;jar&lt;/type&gt;
+					&lt;scope&gt;compile&lt;/scope&gt;
+					&lt;optional&gt;true&lt;/optional&gt;
+				&lt;/dependency&gt;
+				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.2</version>
