@@ -4,7 +4,7 @@
 	<groupId>java-esri-ascii</groupId>
 	<artifactId>javaRasters</artifactId>
 	<name>javaRasters</name>
-	<version>0.0.1.2g</version>
+	<version>0.0.1.2</version>
 	<description>This is a simple library to read and write the ASCII
 		raster files commonly used in GIS work.
 
@@ -22,7 +22,7 @@
 	<url>http://code.google.com/p/java-esri-ascii/</url>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>src</testSourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
 		<outputDirectory>bin</outputDirectory>
 		<testOutputDirectory>bin</testOutputDirectory>
 		<resources>
