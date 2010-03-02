@@ -4,7 +4,7 @@
 	<groupId>java-esri-ascii</groupId>
 	<artifactId>javaRasters</artifactId>
 	<name>javaRasters</name>
-	<version>0.0.1g</version>
+	<version>0.0.1.2</version>
 	<description>This is a simple library to read and write the ASCII
 		raster files commonly used in GIS work.
 
@@ -22,9 +22,7 @@
 	<url>http://code.google.com/p/java-esri-ascii/</url>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>src</testSourceDirectory>
-		<outputDirectory>bin</outputDirectory>
-		<testOutputDirectory>bin</testOutputDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
 		<resources>
 			<resource>
 				<directory>src</directory>
@@ -66,6 +64,38 @@
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<!--
+					To have both the binaries and the test binaries in your own pom as
+					dependency artifacts, use this snippet:
+				&lt;dependency&gt;
+					&lt;groupId&gt;java-esri-ascii&lt;/groupId&gt;
+					&lt;artifactId&gt;javaRasters&lt;/artifactId&gt;
+					&lt;version&gt;0.0&lt;/version&gt;
+					&lt;type&gt;test-jar&lt;/type&gt;
+					&lt;scope&gt;test&lt;/scope&gt;
+					&lt;optional&gt;true&lt;/optional&gt;
+				&lt;/dependency&gt;
+				&lt;dependency&gt;
+					&lt;groupId&gt;java-esri-ascii&lt;/groupId&gt;
+					&lt;artifactId&gt;javaRasters&lt;/artifactId&gt;
+					&lt;version&gt;0.0&lt;/version&gt;
+					&lt;type&gt;jar&lt;/type&gt;
+					&lt;scope&gt;compile&lt;/scope&gt;
+					&lt;optional&gt;true&lt;/optional&gt;
+				&lt;/dependency&gt;
+				-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
