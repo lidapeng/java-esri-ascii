@@ -2,7 +2,7 @@ package com.moseph.gis.raster;
 
 import org.junit.Test;
 
-public class InitialRasterTest extends RasterTestRunner
+public class InitialRasterTest extends RasterTest
 {
 
 	@Test

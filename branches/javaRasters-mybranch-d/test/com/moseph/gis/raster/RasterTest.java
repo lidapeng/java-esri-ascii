@@ -2,7 +2,7 @@ package com.moseph.gis.raster;
 
 import static org.junit.Assert.*;
 
-public class RasterTestRunner
+public class RasterTest
 {
 	
 	public static void assertRasterDataEqual( Raster r1, Raster r2 )
