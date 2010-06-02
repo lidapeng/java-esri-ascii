@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-public class RasterReadWriteTest extends RasterTestRunner
+public class RasterReadWriteTest extends RasterTest
 {
 	RasterReader reader = new RasterReader();
 	RasterWriter writer = new RasterWriter();
