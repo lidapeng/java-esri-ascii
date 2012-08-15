@@ -73,6 +73,15 @@ public class Raster
 		setYll( yll );
 		setSize( numRows, numCols );
 	}
+	
+	public Raster( int minX, int minY, int maxX, int maxY )
+	{
+		this();
+		setCellsize(1);
+		setXll( minX );
+		setYll( minY );
+		setSize( maxY - minY + 1, maxX - minX + 1 );
+	}
 
 	/**
 	 * Creates a raster from the given data
@@ -175,10 +184,32 @@ public class Raster
 
 	public double getValue( int row, int column )
 	{
-		if( row < rows && column < cols )
+		if( row < rows && column < cols && row >= 0 && column >= 0)
 			return data[row][column];
 		return Double.NaN;
 	}
+	
+	/**
+	 * Returns the value at the given XY coordinate, assuming that x is
+	 * relative to Xll and y is relative to Yll
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public double getXYValue( int x, int y )
+	{
+		return getValue( yToRow(y),xToCol(x));
+	}
+	
+	public void setXYValue( int x, int y, double val )
+	{
+		setValue( yToRow( y ), xToCol( x ), val );
+	}
+	
+	public int xToCol( int x ) { return x - (int)xll; }
+	public int yToRow( int y ) { return (rows-(y-(int)yll))-1; }
+	public int colToX( int col ) { return col + (int)xll; }
+	public int rowToY( int row ) { return (int)yll-(row+1-rows); }
 
 	/**
 	 * Copies the given data into the underlying data array. Also updates the number of rows and columns.
