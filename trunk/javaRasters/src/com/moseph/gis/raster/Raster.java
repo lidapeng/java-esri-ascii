@@ -61,6 +61,21 @@ public class Raster
 
 	/**
 	 * Creates a raster from the given data
+	 * @param cellsize
+	 * @param xll
+	 * @param yll
+	 */
+	public Raster( double cellsize, double xll, double yll, int numRows, int numCols )
+	{
+		this();
+		setCellsize( cellsize );
+		setXll( xll );
+		setYll( yll );
+		setSize( numRows, numCols );
+	}
+
+	/**
+	 * Creates a raster from the given data
 	 * @param data
 	 * @param cellsize
 	 * @param xll

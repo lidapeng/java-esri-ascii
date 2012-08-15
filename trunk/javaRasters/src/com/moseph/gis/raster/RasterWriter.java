@@ -13,7 +13,7 @@ public class RasterWriter
 
 	public static void main( String[] args ) throws IOException
 	{
-		RasterWriter rt = new RasterWriter();
+		//RasterWriter rt = new RasterWriter();
 	}
 
 	public void writeRaster( String filename, Raster r ) throws IOException
@@ -23,14 +23,14 @@ public class RasterWriter
 		if( ! f.createNewFile() ) System.err.println( "Could not create file for some reason!");
 		PrintStream o = new PrintStream( f );
 		//o = System.out;
-		System.out.println( "writing header");
+		//System.out.println( "writing header");
 		o.println( "ncols " + r.getCols() );
 		o.println( "nrows " + r.getRows() );
 		o.println( "xllcorner " + r.getXll() );
 		o.println( "yllcorner " + r.getYll());
 		o.println( "cellsize " + r.getCellsize() );
 		o.println( "NODATA_value " + r.getNDATA()  );
-		System.out.println( "writing rows");
+		//System.out.println( "writing rows");
 
 		for( double[] row : r.getData() )
 		{
