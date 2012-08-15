@@ -4,12 +4,13 @@ package com.moseph.gis.raster;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.text.NumberFormat;
+import java.text.*;
 
 public class RasterWriter
 {
 	NumberFormat cellFormat = null;
 	String nodataString = Raster.DEFAULT_NODATA;
+	public static final DecimalFormat INT_FORMAT = new DecimalFormat("0");
 
 	public static void main( String[] args ) throws IOException
 	{
